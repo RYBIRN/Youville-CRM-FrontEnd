@@ -1,0 +1,118 @@
+<script>
+    var select = document.getElementById("rental-properties");
+    var rentals = document.getElementById("rental-addresses");
+    console.log(rentals);
+    var rentalArr = rentals.textContent.split("\n");
+    for (let i = 0; i < rentalArr.length; i++) {
+        console.log(rentalArr[i]);
+        var opt = document.createElement("option");
+        opt.textContent = rentalArr[i];
+        opt.value = rentalArr[i];
+        select.appendChild(opt);
+    }
+    rentals.style.display = "none";
+</script>
+
+<script>
+    function monthlyStatements() {
+        // href="/files/shares/3.%20Municipal%20Taxes"
+        var select = document.getElementById("rental-properties");
+        var strProp = select.options[select.selectedIndex].text;
+        var newUrl = "/files/shares/" + strProp + "/1.%20Statements"
+        // console.log(newUrl);
+        window.location = newUrl;
+    }
+
+    function incomeStatements() {
+        // href="/your-files"
+        var select = document.getElementById("rental-properties");
+        var strProp = select.options[select.selectedIndex].text;
+        var newUrl = "/files/shares/" + strProp + "/1.%20Statements"
+        // console.log(newUrl);
+        window.location = newUrl;
+    }
+
+    function invoicesReceipts() {
+        // href="/your-files"
+        var select = document.getElementById("rental-properties");
+        var strProp = select.options[select.selectedIndex].text;
+        var newUrl = "/files/shares/" + strProp + "/2.%20Receipts%20&%20Invoices"
+        // console.log(newUrl);
+        window.location = newUrl;
+    }
+</script>
+
+<div class="header-img">
+    <figure hidden><img src="/images/3ea57e72-c556-47cc-83e7-447e3b07cd7e/Registration+Pic.jpg" data-image="3ea57e72-c556-47cc-83e7-447e3b07cd7e"></figure>
+</div>
+
+<div class="rental-select">
+    <span id="rental-addresses">{{RentalAddresses}}</span>
+    <select id="rental-properties"></select>
+</div>               
+                     
+<div class="card-container">
+
+    <div class="dashboard-card">
+        <div class="card-contents">
+            <div class="card-header">
+                <div class="card-img">
+                    <svg style="width:32px;height:32px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M15 7H20.5L15 1.5V7M8 0H16L22 6V18C22 19.11 21.11 20 20 20H8C6.89 20 6 19.1 6 18V2C6 .89 6.89 0 8 0M17 16V14H8V16H17M20 12V10H8V12H20Z" />
+                    </svg>
+                </div>
+                <h5>Monthly Statements</h5>
+            </div>
+
+            <div class="card-body">
+                <p class="card-description">View your monthly statements.</p>
+            </div>
+
+            <div class="card-btn">
+                <button class="btn btn-primary" onclick="monthlyStatements()">Monthly Statements</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="card-contents">
+            <div class="card-header">
+                <div class="card-img">
+                    <svg style="width:40px;height:40px" viewBox="0 0 24 24">
+                        <path d="M6,16.5L3,19.44V11H6M11,14.66L9.43,13.32L8,14.64V7H11M16,13L13,16V3H16M18.81,12.81L17,11H22V16L20.21,14.21L13,21.36L9.53,18.34L5.75,22H3L9.47,15.66L13,18.64" />
+                    </svg>
+                </div>
+                <h5>Annual Results</h5>
+            </div>
+
+            <div class="card-body">
+                <p class="card-description">View your property's annual income statements.</p>
+            </div>
+
+            <div class="card-btn">
+                <button class="btn btn-primary" onclick="incomeStatements()">Income Statements</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="card-contents">
+            <div class="card-header">
+                <div class="card-img">
+                    <svg style="width:38px;height:38px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M3,22L4.5,20.5L6,22L7.5,20.5L9,22L10.5,20.5L12,22L13.5,20.5L15,22L16.5,20.5L18,22L19.5,20.5L21,22V2L19.5,3.5L18,2L16.5,3.5L15,2L13.5,3.5L12,2L10.5,3.5L9,2L7.5,3.5L6,2L4.5,3.5L3,2M18,9H6V7H18M18,13H6V11H18M18,17H6V15H18V17Z" />
+                    </svg>
+                </div>
+                <h5>Invoices & Receipts</h5>
+            </div>
+
+            <div class="card-body">
+                <p class="card-description">View all invoices and receipts on file.</p>
+            </div>
+            <div class="card-btn">
+                <button class="btn btn-primary" onclick="invoicesReceipts()">Invoices & Receipts</button>
+            </div>
+        </div>
+    </div>
+               
+</div>
